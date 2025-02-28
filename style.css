@@ -1268,6 +1268,22 @@ xclip
 	color: #cccccc;
 }
 
+.pp_content_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#pp_full_res {
+    flex: 1; /* Resim alanı */
+}
+.pp_description {
+    flex: 1; /* Açıklama alanı */
+    text-align: left; /* Açıklamayı sola hizala */
+    padding-left: 20px;
+    max-width: fit-content; /* Açıklama genişliği */
+    
+}
+
 .playbutton {
     position: absolute;
     color: #ffffff !important;
@@ -1281,20 +1297,23 @@ xclip
 }
 
 .hoverbutton {
-    background-color: #333333;
+    background-color: #ffffff;
     position: absolute;
-    color: #ffffff !important;
+    color: #333333 !important;
     top: 70%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 21px;
     z-index: 12;
     left: 0;
     opacity: 0;
     right: 0;
-    width: 50px;
-    height: 50px;
+    width: fit-content;
+    height: fit-content;
     line-height: 50px;
     text-align: center;
     margin: -20px auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .service-widget:hover .hoverbutton {
@@ -1458,12 +1477,12 @@ hr.invis1 {
 
 .gallery-list .img-overlay {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    background: rgba(51, 51, 51, 0.80);
-    color: #35424C;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: transparent;
+    color: #0091ff;
     opacity: 0;
     -webkit-transition: all .5s;
     transition: all .5s;
@@ -1480,7 +1499,7 @@ hr.invis1 {
 
 .gallery-list .gallery-single:hover .img-overlay .hoverbutton{
 	opacity: 1;
-	top: 50%;
+	top: 90%;
 }
 
 
