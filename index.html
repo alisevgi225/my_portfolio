@@ -342,7 +342,7 @@
 
         .gallery-modal img {
             width: 100%;
-            height: auto;
+            height: 100%;
             border-radius: 8px;
         }
 
@@ -366,8 +366,7 @@
             
 
             document.getElementById("galleryModal").style.display = "flex";
-            const navbar = document.getElementById("mainNav"); // Navbar ID
-            navbar.style.visibility = hidden;
+
             if (!swiper) {
                 swiper = new Swiper(".mySwiper", {
                     loop: true,
@@ -378,6 +377,8 @@
                 });
             }
             swiper.slideTo(index);
+            const navbar = document.getElementById("mainNav"); // Navbar ID
+            navbar.style.visibility = "hidden";
         }
 
         function closeGallery() {
@@ -387,7 +388,7 @@
 
 
             const navbar = document.getElementById("mainNav"); // Navbar ID
-            navbar.style.visibility = unset;
+            navbar.style.visibility = "unset";
         }
 
 
@@ -420,9 +421,9 @@
     <div id="galleryModal" class="gallery-modal">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="uploads/gallery_img-01.jpg" alt="Resim 1"></div>
-                <div class="swiper-slide"><img src="uploads/gallery_img-02.jpg" alt="Resim 2"></div>
-                <div class="swiper-slide"><img src="uploads/gallery_img-03.jpg" alt="Resim 3"></div>
+                <div class="swiper-slide"><img src="Portfolio/Relations1.PNG" alt="Resim 1"></div>
+                <div class="swiper-slide"><img src="Portfolio/Relations2.PNG" alt="Resim 2"></div>
+                <div class="swiper-slide"><img src="Portfolio/Relations2.PNG" alt="Resim 3"></div>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
