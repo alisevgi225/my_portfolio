@@ -1467,7 +1467,11 @@ hr.invis1 {
 .gallery-single{
 	margin: 30px 15px;;
 }
-
+.gallery-single img{
+width: 380px;
+height: 380px;
+    
+}
 .gallery-single {
 	position: relative;
 	overflow: hidden;
