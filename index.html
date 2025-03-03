@@ -248,7 +248,7 @@
                 </div>
             </div> -->
 
-            <div class="gallery-list row">
+            <!-- <div class="gallery-list row">
                 <div class="col-md-4 col-sm-6 gallery-grid gal_a gal_b">
                     <div class="gallery-single fix">
                         <img src="uploads/Relations.PNG" class="img-fluid" alt="Image">
@@ -276,6 +276,40 @@
                         <div class="img-overlay">
                             <a href="uploads/gallery_img-06.jpg" data-rel="prettyPhoto[gal]"
                                 class="hoverbutton global-radius"><i>Relations UI</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="gallery-list row">
+                <div class="col-md-4 col-sm-6 gallery-grid" onclick="openGallery(0)">
+                    <div class="gallery-single fix">
+                        <img src="Portfolio/Relations.png" class="img-fluid" alt="Image">
+                        <div class="img-overlay">
+                            <a href="javascript:void(0);" class="hoverbutton global-radius">
+                                <i>Relations UI</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 col-sm-6 gallery-grid" onclick="openGallery(1)">
+                    <div class="gallery-single fix">
+                        <img src="uploads/gallery_img-05.jpg" class="img-fluid" alt="Image">
+                        <div class="img-overlay">
+                            <a href="javascript:void(0);" class="hoverbutton global-radius">
+                                <i>Sistem Yönetimi UI</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 col-sm-6 gallery-grid" onclick="openGallery(2)">
+                    <div class="gallery-single fix">
+                        <img src="uploads/gallery_img-06.jpg" class="img-fluid" alt="Image">
+                        <div class="img-overlay">
+                            <a href="javascript:void(0);" class="hoverbutton global-radius">
+                                <i>Yedekleme UI</i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -329,6 +363,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            padding: 4%;
             background: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
@@ -336,14 +371,34 @@
         }
 
         .gallery-modal .swiper {
-            width: 80%;
+            width: 70%;
             height: 80%;
         }
 
         .gallery-modal img {
             width: 100%;
             height: 100%;
-            border-radius: 8px;
+            border-radius: 10px 0px 0px 10px;
+        }
+
+        .image-description {
+            width: 30%;
+            height: 80%;
+            /* Açıklama %40 genişlik */
+            padding: 20px;
+            background: white;
+            color: #333;
+            font-size: 16px;
+            border-left: 2px solid #ddd;
+            /* Swiper ile açıklama arasına çizgi */
+            overflow-y: auto;
+            border-radius: 0px 10px 10px 0px;
+        }
+
+        .image-description h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #222;
         }
 
         .close-btn {
@@ -359,14 +414,70 @@
         }
     </style>
     <script>
-        var swiper;
+
+        const galleryData = [
+            {
+                images: ["Portfolio/Relations1.PNG", "Portfolio/Relations2.PNG", "Portfolio/Relations3.PNG"],
+                description: "Relations UI Tasarımı ve Kullanıcı Bağlantıları",
+                header: "Relations UI Tasarımı ve Kullanıcı Bağlantıları111111111111111"
+            },
+            {
+                images: ["uploads/about_04.jpg", "uploads/banner.jpg"],
+                description: "Sistem Yönetimi için UI Tasarımı",
+                header: "Relations UI Tasarımı ve Kullanıcı Bağlantıları222222222222222222222"
+            },
+            {
+                images: ["uploads/about_04.jpg", "uploads/banner.jpg"],
+                description: "Yedekleme ve Kurtarma UI Arayüzü",
+                header: "Relations UI Tasarımı ve Kullanıcı Bağlantıları2222222222222222222"
+            }
+        ];
+
+
+
+
+         var swiper;
+
+        // function openGallery(index) {
+
+
+
+        //     document.getElementById("galleryModal").style.display = "flex";
+
+        //     if (!swiper) {
+        //         swiper = new Swiper(".mySwiper", {
+        //             loop: true,
+        //             navigation: {
+        //                 nextEl: ".swiper-button-next",
+        //                 prevEl: ".swiper-button-prev",
+        //             },
+        //         });
+        //     }
+        //     swiper.slideTo(index);
+        //     const navbar = document.getElementById("mainNav"); // Navbar ID
+        //     navbar.style.visibility = "hidden";
+        // }
 
         function openGallery(index) {
-
-            
-
             document.getElementById("galleryModal").style.display = "flex";
 
+            // Swiper içeriğini dinamik olarak değiştir
+            let swiperWrapper = document.querySelector(".swiper-wrapper");
+            swiperWrapper.innerHTML = ""; // Önceki resimleri temizle
+
+            // Yeni resimleri modal içine ekle
+            galleryData[index].images.forEach(imgSrc => {
+                let slide = document.createElement("div");
+                slide.classList.add("swiper-slide");
+                slide.innerHTML = `<img src="${imgSrc}" alt="Galeri Resmi">`;
+                swiperWrapper.appendChild(slide);
+            });
+
+            // Açıklamayı güncelle
+            document.getElementById("imageDesc").innerText = galleryData[index].description;
+            document.getElementById("imageHeader").innerText = galleryData[index].header;
+
+            // Swiper nesnesini başlat veya yeniden yükle
             if (!swiper) {
                 swiper = new Swiper(".mySwiper", {
                     loop: true,
@@ -375,21 +486,36 @@
                         prevEl: ".swiper-button-prev",
                     },
                 });
+            } else {
+                swiper.update(); // Mevcut swiper'ı güncelle
+                swiper.slideTo(0); // İlk resme git
             }
-            swiper.slideTo(index);
-            const navbar = document.getElementById("mainNav"); // Navbar ID
-            navbar.style.visibility = "hidden";
+
+            // Navbar'ı gizle
+            document.getElementById("mainNav").style.visibility = "hidden";
         }
+
+
+
+        // function closeGallery() {
+
+
+        //     document.getElementById("galleryModal").style.display = "none";
+
+
+        //     const navbar = document.getElementById("mainNav"); // Navbar ID
+        //     navbar.style.visibility = "unset";
+        // }
 
         function closeGallery() {
-            
+    document.getElementById("galleryModal").style.display = "none";
 
-            document.getElementById("galleryModal").style.display = "none";
+    // Swiper içeriğini temizle
+    document.querySelector(".swiper-wrapper").innerHTML = "";
 
-
-            const navbar = document.getElementById("mainNav"); // Navbar ID
-            navbar.style.visibility = "unset";
-        }
+    // Navbar'ı tekrar görünür yap
+    document.getElementById("mainNav").style.visibility = "unset";
+}
 
 
 
@@ -427,6 +553,10 @@
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
+        </div>
+        <div class="image-description">
+            <h2 id="imageHeader">Resim Açıklaması</h2>
+            <p id="imageDesc">Buraya açıklama gelecek...</p>
         </div>
         <button class="close-btn" onclick="closeGallery()">✖</button>
     </div>
