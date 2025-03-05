@@ -236,52 +236,23 @@
                 <h3>Portfolio</h3>
                 <p>Aşağıdan daha önceki deneyimlerimi inceleyebilirsiniz.</p>
             </div><!-- end title -->
+            
+            <div class="gallery-list row">
 
-            <!-- <div class="gallery-menu row">
-                <div class="col-md-12">
-                    <div class="button-group filter-button-group text-left">
-                        <button class="active" data-filter="*">All</button>
-                        <button data-filter=".gal_a">Web Development</button>
-                        <button data-filter=".gal_b">Creative Design</button>
-                        <button data-filter=".gal_c">Graphic Design</button>
-                    </div>
-                </div>
-            </div> -->
 
-            <!-- <div class="gallery-list row">
-                <div class="col-md-4 col-sm-6 gallery-grid gal_a gal_b">
+                <div class="col-md-4 col-sm-6 gallery-grid" onclick="openGallery(0)">
                     <div class="gallery-single fix">
-                        <img src="uploads/Relations.PNG" class="img-fluid" alt="Image">
+                        <img src="Portfolio/DT.png" class="img-fluid" alt="Image">
                         <div class="img-overlay">
-                            <a href="javascript:void(0);" onclick="openGallery()" class="hoverbutton global-radius">
-                                <i>Relations UI</i>
+                            <a href="javascript:void(0);" class="hoverbutton global-radius">
+                                <i>Doğrudan Temin</i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 col-sm-6 gallery-grid gal_a gal_c">
-                    <div class="gallery-single fix">
-                        <img src="uploads/gallery_img-05.jpg" class="img-fluid" alt="Image">
-                        <div class="img-overlay">
-                            <a href="uploads/gallery_img-05.jpg" data-rel="prettyPhoto[gal]"
-                                class="hoverbutton global-radius"><i>Relations UI</i></a>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-md-4 col-sm-6 gallery-grid gal_c gal_a">
-                    <div class="gallery-single fix">
-                        <img src="uploads/gallery_img-06.jpg" class="img-fluid" alt="Image">
-                        <div class="img-overlay">
-                            <a href="uploads/gallery_img-06.jpg" data-rel="prettyPhoto[gal]"
-                                class="hoverbutton global-radius"><i>Relations UI</i></a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <div class="gallery-list row">
-                <div class="col-md-4 col-sm-6 gallery-grid" onclick="openGallery(0)">
+                <div class="col-md-4 col-sm-6 gallery-grid" onclick="openGallery(1)">
                     <div class="gallery-single fix">
                         <img src="Portfolio/Relations.png" class="img-fluid" alt="Image">
                         <div class="img-overlay">
@@ -292,7 +263,7 @@
                     </div>
                 </div>
             
-                <div class="col-md-4 col-sm-6 gallery-grid" onclick="openGallery(1)">
+                <div class="col-md-4 col-sm-6 gallery-grid" onclick="openGallery(2)">
                     <div class="gallery-single fix">
                         <img src="Portfolio/FM.jpg" class="img-fluid" alt="Image">
                         <div class="img-overlay">
@@ -302,17 +273,47 @@
                         </div>
                     </div>
                 </div>
-            
-                <div class="col-md-4 col-sm-6 gallery-grid" onclick="openGallery(2)">
+
+                <div class="col-md-4 col-sm-6 gallery-grid" onclick="openGallery(3)">
                     <div class="gallery-single fix">
-                        <img src="Portfolio/DT.png" class="img-fluid" alt="Image">
+                        <img src="Portfolio/FormUI.png" class="img-fluid" alt="Image">
                         <div class="img-overlay">
                             <a href="javascript:void(0);" class="hoverbutton global-radius">
-                                <i>Dğrudan Temin</i>
+                                <i>Form UI</i>
                             </a>
                         </div>
                     </div>
                 </div>
+
+
+
+                <div class="col-md-4 col-sm-6 gallery-grid" onclick="openGallery(4)">
+                    <div class="gallery-single fix">
+                        <img src="Portfolio/Plaka.png" class="img-fluid" alt="Image">
+                        <div class="img-overlay">
+                            <a href="javascript:void(0);" class="hoverbutton global-radius">
+                                <i>Plaka Okuyucu</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                                <div class="col-md-4 col-sm-6 gallery-grid" onclick="openGallery(5)">
+                    <div class="gallery-single fix">
+                        <img src="Portfolio/LDAP.png" class="img-fluid" alt="Image">
+                        <div class="img-overlay">
+                            <a href="javascript:void(0);" class="hoverbutton global-radius">
+                                <i>LDAP Doğrulama</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
             </div>
         </div>
     </div>
@@ -416,6 +417,11 @@
     <script>
 
         const galleryData = [
+        {
+                images: ["Portfolio/DT1.PNG","Portfolio/DT2.png","Portfolio/DT3.png","Portfolio/DT4.png","Portfolio/DT5.png","Portfolio/DT6.png",],
+                description: "Doğrudan Temin Programı",
+                header: "Pro Temin"
+            },
             {
                 images: ["Portfolio/Relations1.PNG", "Portfolio/Relations2.PNG", "Portfolio/Relations3.PNG"],
                 description: "Relations UI",
@@ -427,10 +433,21 @@
                 header: "File manager açıklama"
             },
             {
-                images: ["Portfolio/DT1.PNG","Portfolio/DT2.png","Portfolio/DT3.png","Portfolio/DT4.png","Portfolio/DT5.png","Portfolio/DT6.png",],
-                description: "Doğrudan Temin Programı",
-                header: "Pro Temin"
-            }
+                images: ["Portfolio/FormUI1.png","Portfolio/FormUI2.png","Portfolio/FormUI3.png","Portfolio/FormUI4.png","Portfolio/FormUI5.jpeg",],
+                description: "File Manager UI",
+                header: "Form UI"
+            },
+            {
+                images: ["Portfolio/1.png", "Portfolio/2.png","Portfolio/3.png"],
+                description: "Plaka yerli çok",
+                header: "Plaka Okuma Uygulaması"
+            },
+            {
+                images: ["Portfolio/LDAP1.png", "Portfolio/LDAP2.png"],
+                description: "File Manager UI",
+                header: "LDAP Kullanıcı Doğrulama"
+            },
+
         ];
 
 
@@ -498,11 +515,7 @@
 
 
         // function closeGallery() {
-
-
         //     document.getElementById("galleryModal").style.display = "none";
-
-
         //     const navbar = document.getElementById("mainNav"); // Navbar ID
         //     navbar.style.visibility = "unset";
         // }
